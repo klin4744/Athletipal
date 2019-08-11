@@ -4,6 +4,7 @@ const searchButton = document.getElementById('searchBtn');
 const searchInput = document.getElementById('search');
 const foodsList = document.getElementById('foods');
 const mainList = document.getElementById('list');
+import secrets from './secrets';
 
 addButton.addEventListener('click', () => {
    modal.style.display = 'block';
@@ -20,10 +21,7 @@ searchButton.addEventListener('click', async () => {
    const {data: food} = await axios.get(
       `https://trackapi.nutritionix.com/v2/search/instant?query=${query}`,
       {
-         headers: {
-            'x-app-id': 'd0e2aa66',
-            'x-app-key': '8b9f315d79a174f72cf062b0e4d189f7',
-         },
+         headers: secrets,
       },
    );
    for (let i = 0; i < 5; i++) {
