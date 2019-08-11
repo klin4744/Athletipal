@@ -5,8 +5,12 @@ Athletipal is a TensorFlow project built directly on top of Google's PoseNet mod
 To use this implementation of PoseNet, run the following commands:
 
 In the posenet directory
+<code>
 yarn
+  </code>
 In the posenet/models directory
+<code>
 yarn npm install npm run watch
+  </code>
 
 The Calculations
