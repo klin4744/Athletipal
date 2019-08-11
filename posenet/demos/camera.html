@@ -4,12 +4,13 @@
 <head>
     <title>Athletifit</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Text:400,600,700|Encode+Sans+Condensed:400,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <div class="navbar">
+    <div class="navbar-dark bg-dark navbar">
         <a href="#" class="navbar-brand">
                 Athletifit
         </a>
@@ -43,27 +44,63 @@
         
      
         </div>
-        <div class="mt-3 col-3 card">
-                <h1>Calories burned</h1>
-                <h3 class="text-center" id="calories">0 Calories</h3>
-                <div class="row">
-                        <div class="col-6">
-                            <button id="start" class="btn btn-primary w-100">Start Recording</button>
-                        </div>
-                        <div class="col-6">
-                                <button id="stop" class="btn btn-danger w-100">Stop Recording</button>
-                        </div>
-        
-                    </div>
+        <div class="col-6 mt-2">
+            <div class="row">
+                <div class="col-6 card p-3">
+                        <h1>Calories burned</h1>
+                        <h3 class="text-center" id="calories">0 Calories</h3>
+                        <div class="row">
+                                <div class="col-6">
+                                    <button id="start" class="btn btn-primary w-100">Start Recording</button>
+                                </div>
+                                <div class="col-6">
+                                        <button id="stop" class="btn btn-danger w-100">Stop Recording</button>
+                                </div>
                 
-        </div>
-        <div class="col-3">
-            <div class="card p-3">
-                <h1>Calorie Tracker</h1>
-                <ul id="list"></ul>
-                <button id="add-food-btn" class="btn btn-success">Add Food</button>
+                            </div>
+                        
+                </div>
+                <div class="col-6">
+                    <div class="card p-3">
+                        <h1>Calorie Tracker</h1>
+                        <ul id="list"></ul>
+                        <p class="text-danger" id="cals">Total calories: 0</p>
+                        <button id="add-food-btn" class="btn btn-success">Add Food</button>
+                    </div>
+                </div>
             </div>
+                <div id='my-scores' class='row card p-3'>
+                    <h1>My Scores</h1>
+                    <table class="table ">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Calories Burned</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                              </tr>
+                            </tbody>
+                          </table>
+        
+                </div>
         </div>
+        
         <div id="modal" style="display:none">
             <div id='container'>
                 <form>

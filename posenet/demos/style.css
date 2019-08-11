@@ -1,3 +1,14 @@
+body {
+   font-family: 'Encode Sans Condensed', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: 'DM Serif Text', serif;
+}
 .footer {
    position: fixed;
    left: 0;
@@ -20,6 +31,9 @@
    .dg {
       display: none;
    }
+}
+#my-scores {
+   width: 102%;
 }
 
 #placeholder {

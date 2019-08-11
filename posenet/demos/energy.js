@@ -24,7 +24,7 @@ class Energy {
       return pixelToMeters;
    }
    calculateKineticEnergy(distance, mass) {
-      let velocity = distance;
+      let velocity = distance / 0.07;
       return Math.pow(0.5 * mass * velocity * velocity, 2);
    }
    calculatePotentialEnergy(height, mass) {

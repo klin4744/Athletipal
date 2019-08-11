@@ -17,7 +17,6 @@ modal.addEventListener('click', (event) => {
 });
 searchButton.addEventListener('click', async () => {
    const query = searchInput.value;
-   const listItemButtons = [];
    const {data: food} = await axios.get(
       `https://trackapi.nutritionix.com/v2/search/instant?query=${query}`,
       {
@@ -46,10 +45,32 @@ searchButton.addEventListener('click', async () => {
          >
                <h5>Name: ${names[0]}</h5>
                <p>Calories: ${names[1]}</p>
-               <button class="btn btn-danger li-button w-100" type="button">Remove</button>
+               <button class="btn btn-danger li-button w-75" type="button">Remove</button>
          </div>`;
-         liToAppend.appendChild;
          mainList.appendChild(liToAppend);
+         Array.from(
+            document.getElementsByClassName('btn btn-danger li-button w-75'),
+         ).forEach((button) => {
+            button.addEventListener('click', (event) => {
+               console.log(
+                  event.target.previousElementSibling.innerText.split(' ')[1],
+               );
+               document.getElementById('cals').innerText =
+                  'Total calories: ' +
+                  (Number(
+                     document.getElementById('cals').innerText.split(' ')[2],
+                  ) -
+                     Number(
+                        button.previousElementSibling.innerText.split(' ')[1],
+                     ));
+               button.parentNode.remove();
+            });
+         });
+         document.getElementById('cals').innerText =
+            'Total calories: ' +
+            (Number(document.getElementById('cals').innerText.split(' ')[2]) +
+               Number(names[1]));
+         foodsList.innerHTML = '';
          modal.style.display = 'none';
       }),
    );

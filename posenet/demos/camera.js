@@ -522,7 +522,10 @@ function detectPoseInRealTime(video, net) {
       });
       // if (timer >= 5) {
       document.getElementById('calories').innerText =
-         energyBurned + ' ' + 'Calories';
+         energyBurned -
+         Number(document.getElementById('cals').innerText.split(' ')[2]) +
+         ' ' +
+         'Calories';
       //    timer = 0;
       // }
 
