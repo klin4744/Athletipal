@@ -2,110 +2,87 @@
 <html>
 
 <head>
-    <title>PoseNet - Camera Feed Demo</title>
-    <style>
-        .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            color: black;
-        }
-
-        .footer-text {
-            max-width: 600px;
-            text-align: center;
-            margin: auto;
-        }
-
-        @media only screen and (max-width: 600px) {
-
-            .footer-text,
-            .dg {
-                display: none;
-            }
-        }
-
-        /*
-         *  The following loading spinner CSS is from SpinKit project
-         *  https://github.com/tobiasahlin/SpinKit
-         */
-        .sk-spinner-pulse {
-            width: 20px;
-            height: 20px;
-            margin: auto 10px;
-            float: left;
-            background-color: #333;
-            border-radius: 100%;
-            -webkit-animation: sk-pulseScaleOut 1s infinite ease-in-out;
-            animation: sk-pulseScaleOut 1s infinite ease-in-out;
-        }
-
-        @-webkit-keyframes sk-pulseScaleOut {
-            0% {
-                -webkit-transform: scale(0);
-                transform: scale(0);
-            }
-
-            100% {
-                -webkit-transform: scale(1.0);
-                transform: scale(1.0);
-                opacity: 0;
-            }
-        }
-
-        @keyframes sk-pulseScaleOut {
-            0% {
-                -webkit-transform: scale(0);
-                transform: scale(0);
-            }
-
-            100% {
-                -webkit-transform: scale(1.0);
-                transform: scale(1.0);
-                opacity: 0;
-            }
-        }
-
-        .spinner-text {
-            float: left;
-        }
-    </style>
+    <title>Athletifit</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <div id="info" style='display:none'>
+    <div class="navbar">
+        <a href="#" class="navbar-brand">
+                Athletifit
+        </a>
+            
     </div>
-    <div id="loading" style='display:flex'>
-        <div class="spinner-text">
-            Loading PoseNet model...
+    <div class="row m-2">
+
+        <div class="col-6 mx-auto">
+            <div class="container mx-auto text-center">
+                <div id="info" style='display:none'>
+                </div>
+                <div id="loading" style='display:flex'>
+                    <div class="spinner-text">
+                        
+                    </div>
+                    <div class="sk-spinner sk-spinner-pulse"></div>
+                </div>
+                <div id='main' >
+                    <video id="video" playsinline style=" -moz-transform: scaleX(-1);
+                    -o-transform: scaleX(-1);
+                    -webkit-transform: scaleX(-1);
+                    transform: scaleX(-1);
+                    display: none;
+                    ">
+                    </video>
+                    <div id='placeholder'></div>
+                    <canvas id="output" />
+                  
+                </div>
+            </div>
+        
+     
         </div>
-        <div class="sk-spinner sk-spinner-pulse"></div>
-    </div>
-    <div id='main' style='display:none'>
-        <video id="video" playsinline style=" -moz-transform: scaleX(-1);
-        -o-transform: scaleX(-1);
-        -webkit-transform: scaleX(-1);
-        transform: scaleX(-1);
-        display: none;
-        ">
-        </video>
-        <canvas id="output" />
-    </div>
-    <div class="footer">
-        <div class="footer-text">
-            <p>
-                PoseNet runs with either a <strong>single-pose</strong> or <strong>multi-pose</strong> detection
-                algorithm. The single person pose detector is faster and more accurate but requires only one subject
-                present in the image.
-                <br>
-                <br> The <strong>output stride</strong> and <strong>input resolution</strong> have the largest effects
-                on accuracy/speed. A <i>higher</i> output stride results in lower accuracy but higher speed. A
-                <i>higher</i> image scale factor results in higher accuracy but lower speed. </p>
+        <div class="mt-3 col-3 card">
+                <h1>Calories burned</h1>
+                <h3 class="text-center" id="calories">0 Calories</h3>
+                <div class="row">
+                        <div class="col-6">
+                            <button id="start" class="btn btn-primary w-100">Start Recording</button>
+                        </div>
+                        <div class="col-6">
+                                <button id="stop" class="btn btn-danger w-100">Stop Recording</button>
+                        </div>
+        
+                    </div>
+                
+        </div>
+        <div class="col-3">
+            <div class="card p-3">
+                <h1>Calorie Tracker</h1>
+                <ul id="list"></ul>
+                <button id="add-food-btn" class="btn btn-success">Add Food</button>
+            </div>
+        </div>
+        <div id="modal" style="display:none">
+            <div id='container'>
+                <form>
+                  <div class="form-group">
+                    <label for="search">Search</label>
+                    <input type="text" class="form-control" id="search"  placeholder="Enter food name">
+                
+                  </div>
+                  <ul id="foods">
+
+                  </ul>
+                  <button id="searchBtn" type="button" class="btn btn-primary form-control">Search</button>
+                </form>
+            </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
     <script src="camera.js"></script>
+    <script src="calorieTracker.js"></script>
 </body>
 
 </html>
