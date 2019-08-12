@@ -33,11 +33,31 @@ import {
 const videoWidth = 600;
 const videoHeight = 500;
 const stats = new Stats();
+const scoresTable = document.getElementById('t-body');
+
+const storage = window.localStorage;
 
 let timer = 0;
 let energyBurned = 0;
 let previousPose = null;
 let localStream;
+
+let scores = JSON.parse(storage.getItem('scores'));
+
+if (!scores) {
+   scores = [];
+} else {
+   scores.sort((a, b) => b.calories - a.calories);
+   scores.forEach((score, index) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = ` 
+     <th scope="row">${index + 1}</th>
+     <td>${score.calories}</td>
+     <td>${score.time}</td>
+  `;
+      scoresTable.appendChild(tr);
+   });
+}
 
 /**
  * Loads a the camera to be used in the demo
@@ -606,6 +626,28 @@ async function start() {
    }
 }
 function stopRecord() {
+   const calories = Number(
+      document.getElementById('calories').innerText.split(' ')[0],
+   );
+   const score = {time: timer, calories};
+   scores.push(score);
+   scores.sort((a, b) => b.calories - a.calories);
+   while (scoresTable.firstChild) {
+      scoresTable.removeChild(scoresTable.firstChild);
+   }
+   scores.forEach((score, index) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = ` 
+     <th scope="row">${index + 1}</th>
+     <td>${score.calories}</td>
+     <td>${score.time}</td>
+  `;
+      scoresTable.appendChild(tr);
+   });
+
+   storage.setItem('scores', JSON.stringify(scores));
+   timer = 0;
+
    guiState.net.dispose();
    localStream.getTracks().forEach((track) => track.stop());
    document.getElementById('video').style.display = 'none';
