@@ -17,7 +17,7 @@ yarn npm install npm run watch
 </code>
 <br>
 
-## Calculations
+# Calculations
 
 ## Basic Kinetic Energy
 Basic kinetic energy was calculated using the kinetic energy equation: Ek = 1/2 mv^2, velocity was calculated using the following methodology: 
@@ -29,10 +29,10 @@ Basic kinetic energy was calculated using the kinetic energy equation: Ek = 1/2 
 </ol>
 ## Basic Potential Energy Calculations
 Basic potential energy was calculated using the potential energy equation: Ep = mgh. 
-<br>
-1. To account for changes in height, the change in height was calculated by finding the absolute difference of the previous height and the current pose.
-<br>
-2. Mass is input by the user and the acceleration of gravity is defaulted to 9.81m/s^2 
+<ol>
+<li> To account for changes in height, the change in height was calculated by finding the absolute difference of the previous height and the current pose. </li>
+ <li> Mass is input by the user and the acceleration of gravity is defaulted to 9.81m/s^2 </li>
+ </ol>
 
 ## Accounting for dynamic distance from the camera
 To account for the user being at varying distances from the camera. The distance between the left shoulder and the left elbow is calculated. This distance is approximately 20% of the user's height. This distance multipled by their height gives a good estimate of the distance between those points in meters. The distance in pixels is then used and compared to the percentage of the screen this length takes up. This is used to map the distance in meters of one pixel on the camera frame. This allows us to account for dynamic distances from the camera 
