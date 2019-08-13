@@ -2,6 +2,8 @@
 
 Athletipal is a TensorFlow project built directly on top of Google's PoseNet model demo which acquires real-time pose data. This project uses simple kinetic and potential energy calculations as well as relativity equations to estimate the total amount of calories a person is burning by movement in real-time.
 
+<h1>Preview</h1>
+<img src="preview.gif" />
 To use this implementation of PoseNet, first clone/fork the repository then run the following commands:
 
 In the posenet directory:
