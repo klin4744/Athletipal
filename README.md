@@ -19,7 +19,9 @@ yarn npm install npm run watch
 
 # Calculations
 
-## Basic Kinetic Energy
+## Energy Calculations
+
+<h6>Kinetic Energy</h6>
 Basic kinetic energy was calculated using the kinetic energy equation: Ek = 1/2 mv^2, velocity was calculated using the following methodology: 
 <ol>
 <li> PoseNet runs at about 15 frames a second, converting this to seconds, it takes 1/15 seconds for one new PoseNet position calculation. A constant time of 1/15 seconds was used for time. </li>
@@ -27,7 +29,7 @@ Basic kinetic energy was calculated using the kinetic energy equation: Ek = 1/2 
  </li>
   <li> Mass is input by the user and is, by default, in meters </li>
 </ol>
-## Basic Potential Energy Calculations
+<h6> Potential Energy </h6>
 Basic potential energy was calculated using the potential energy equation: Ep = mgh. 
 <ol>
 <li> To account for changes in height, the change in height was calculated by finding the absolute difference of the previous height and the current pose. </li>
