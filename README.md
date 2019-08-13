@@ -50,6 +50,7 @@ To account for the user being at varying distances from the camera. The distance
   <li>
     <h1>Calorie tracker</h1>
     <p>Users' can track foods with a calorie tracker that pulls from Nutrionx's API, this number will subtract from Athletipal's calories burned calculations</p>
+    ![](calorietracker.gif)
   </li>
 
 </ol>
