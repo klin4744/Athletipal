@@ -22,19 +22,42 @@ yarn npm install npm run watch
 ## Energy Calculations
 
 <h4>Kinetic Energy</h4>
-Basic kinetic energy was calculated using the kinetic energy equation: Ek = 1/2 mv^2, velocity was calculated using the following methodology: 
+Basic kinetic energy was calculated using the kinetic energy equation: Ek = 1/2 mv^2, velocity was calculated using the following methodology:
 <ol>
 <li> PoseNet runs at about 15 frames a second, converting this to seconds, it takes 1/15 seconds for one new PoseNet position calculation. A constant time of 1/15 seconds was used for time. </li>
-<li> Distance was calculated using consecutive poses. One pose contains x and y coordinates for sixteen different points on the body, each run a frame is stored as the previous frame. The distance equation for 2d lines is used to caluclate distance between all 16 positons per pose, and that distance is then divided by time to calculate velocity. 
+<li> Distance was calculated using consecutive poses. One pose contains x and y coordinates for sixteen different points on the body, each run a frame is stored as the previous frame. The distance equation for 2d lines is used to caluclate distance between all 16 positons per pose, and that distance is then divided by time to calculate velocity.
  </li>
   <li> Mass is input by the user and is, by default, in meters </li>
 </ol>
 <h4> Potential Energy </h4>
-Basic potential energy was calculated using the potential energy equation: Ep = mgh. 
+Basic potential energy was calculated using the potential energy equation: Ep = mgh.
 <ol>
 <li> To account for changes in height, the change in height was calculated by finding the absolute difference of the previous height and the current pose. </li>
  <li> Mass is input by the user and the acceleration of gravity is defaulted to 9.81m/s^2 </li>
  </ol>
 
 ## Accounting for dynamic distance from the camera
-To account for the user being at varying distances from the camera. The distance between the left shoulder and the left elbow is calculated. This distance is approximately 20% of the user's height. This distance multipled by their height gives a good estimate of the distance between those points in meters. The distance in pixels is then used and compared to the percentage of the screen this length takes up. This is used to map the distance in meters of one pixel on the camera frame. This allows us to account for dynamic distances from the camera 
+
+To account for the user being at varying distances from the camera. The distance between the left shoulder and the left elbow is calculated. This distance is approximately 20% of the user's height. This distance multipled by their height gives a good estimate of the distance between those points in meters. The distance in pixels is then used and compared to the percentage of the screen this length takes up. This is used to map the distance in meters of one pixel on the camera frame. This allows us to account for dynamic distances from the camera
+
+## Additional Features
+
+<ol>
+  <li>
+    <h1>Data persistence with local storage</h1>
+    <p>Users' top scores are saved in local storage</p>
+  </li>
+  <li>
+    <h1>Calorie tracker</h1>
+    <p>Users' can track foods with a calorie tracker that pulls from Nutrionx's API, this number will subtract from Athletipal's calories burned calculations</p>
+  </li>
+
+</ol>
+
+## Future features
+
+<ol>
+  <li>Reduce package size</li>
+  <li>Add PostgreSQL database so that the users can have friends</li>
+  <li>Add a leaderboard between a user and their friends </li>
+</ol>
